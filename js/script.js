@@ -1,13 +1,19 @@
 var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial"];
 var possibleMovies = allMovies;
 var thisMoviePlot = '';
+var wrongAnswers = [];
 //trying to randomly select a movie to search
-var thisMovie = possibleMovies[Math.floor(Math.random() * 6)];
+var thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
 //removing selected film from possible answers
 possibleMovies.splice(possibleMovies.indexOf(thisMovie), 1);
 console.log(possibleMovies);
-
+//generating other possible titles
+var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
+possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
+wrongAnswers.push(thisWrongMovie);
 console.log(thisMovie);
+console.log(thisWrongMovie);
+console.log(wrongAnswers);
 
 $(document).ready(function () {
 	console.log('linked!');
