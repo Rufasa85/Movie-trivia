@@ -8,11 +8,14 @@ var thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)
 possibleMovies.splice(possibleMovies.indexOf(thisMovie), 1);
 console.log(possibleMovies);
 //generating other possible titles
-var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
-possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
-wrongAnswers.push(thisWrongMovie);
+for (var i = 0; i<3; i++) {
+	var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
+	possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
+	wrongAnswers.push(thisWrongMovie);
+	console.log(thisWrongMovie);
+	console.log(possibleMovies);
+}
 console.log(thisMovie);
-console.log(thisWrongMovie);
 console.log(wrongAnswers);
 
 $(document).ready(function () {
