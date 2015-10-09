@@ -17,6 +17,8 @@ for (var i = 0; i<3; i++) {
 }
 console.log(thisMovie);
 console.log(wrongAnswers);
+//adding titles to random spot on the screen
+$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie);
 
 $(document).ready(function () {
 	console.log('linked!');
