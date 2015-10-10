@@ -17,6 +17,10 @@ for (var i = 0; i<3; i++) {
 }
 //adding correct title to random spot on the screen
 $($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
+//changing clolor of button on click
+$('#right').click(function() {
+	$(this).addClass('btn-success');
+});
 //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
