@@ -1,4 +1,4 @@
-var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial"];
+var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "Star Wars: Episode VI - Return of the Jedi", "Star Wars: Episode I - The Phantom Menace", "The Lion King", "Jurassic Park", "Jurassic World", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind","The Dark Knight"];
 var possibleMovies = allMovies;
 var thisMoviePlot = '';
 var wrongAnswers = [];
@@ -15,9 +15,20 @@ for (var i = 0; i<3; i++) {
 	console.log(thisWrongMovie);
 	console.log(possibleMovies);
 }
-//adding titles to random spot on the screen
-$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie);
+//adding correct title to random spot on the screen
+$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).addClass('btn-success');
 //populating the rest of the buttons with the wrong answers
+function addingWrongTitles(title) {
+	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
+	if (thisButton.html() === '') {
+		thisButton.html(title).addClass('btn-danger')
+	}
+	else {
+		addingWrongTitles(title)
+	}
+};
+
+wrongAnswers.forEach(addingWrongTitles);
 
 
 $(document).ready(function () {
@@ -31,6 +42,7 @@ $(document).ready(function () {
 		success:function(data) {
 			thisMoviePlot = data.Plot;
 			console.log(thisMoviePlot);
+			$('#plot').html(thisMoviePlot)
 		},
 	});
 	console.log(thisMovie);
