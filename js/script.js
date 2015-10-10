@@ -16,15 +16,18 @@ for (var i = 0; i<3; i++) {
 	console.log(possibleMovies);
 }
 //adding correct title to random spot on the screen
-$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).addClass('btn-success');
+$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
 //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
 	if (thisButton.html() === '') {
-		thisButton.html(title).addClass('btn-danger')
+		thisButton.html(title);
+		thisButton.click(function() {
+			thisButton.addClass('btn-danger');
+		});
 	}
 	else {
-		addingWrongTitles(title)
+		addingWrongTitles(title);
 	}
 };
 
@@ -42,7 +45,7 @@ $(document).ready(function () {
 		success:function(data) {
 			thisMoviePlot = data.Plot;
 			console.log(thisMoviePlot);
-			$('#plot').html(thisMoviePlot)
+			$('#plot').html(thisMoviePlot);
 		},
 	});
 	console.log(thisMovie);
