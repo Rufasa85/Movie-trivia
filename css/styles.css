@@ -6,6 +6,11 @@ button {
 	background:#2980b9;
 }
 
+img {
+	max-width:12%;
+	height:auto;
+}
+
 body {
 	background: black;
 	color:white;
