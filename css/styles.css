@@ -16,3 +16,7 @@ body {
 	color:white;
 	font-family: 'Nunito', sans-serif;
 }
+
+.modal-content {
+	color:black;
+}
