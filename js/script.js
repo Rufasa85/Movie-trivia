@@ -65,6 +65,11 @@ function populatingCurrentTitlesToBoard () {
 		$(this).addClass('btn-success');
 		$('.answers').off('click');
 		$('#nextRound').show();
+		if (currentRound === 11) {
+			console.log('game over!');
+			$('#nextRound').hide();
+			$('#winner').show();
+		} 
 	});
 	wrongAnswers.forEach(addingWrongTitles);
 };
@@ -83,9 +88,6 @@ function generatingRound() {
 		},
 	});
 	currentRound++;
-	if (currentRound === 11) {
-		console.log('game over!')
-	} 
 };
 
 
@@ -95,6 +97,7 @@ function generatingRound() {
 $(document).ready(function () {
 	console.log('linked!');
 	$('#nextRound').hide();
+	$('#winner').hide();
 	// //making the term searchable in the API
 	// thisMovie = thisMovie.split(' ').join('+');
 	// console.log(thisMovie);
