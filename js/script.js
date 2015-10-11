@@ -4,6 +4,7 @@ var possibleMovies = allMovies;
 var thisMoviePlot = '';
 var wrongAnswers = [];
 var thisMovie = '';
+var score = 0;
 // //trying to randomly select a movie to search
 // var thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
 // //removing selected film from possible answers
@@ -32,6 +33,8 @@ function addingWrongTitles(title) {
 		thisButton.html(title);
 		thisButton.click(function() {
 			thisButton.addClass('btn-danger');
+			$('.answers').off('click');
+			$('#nextRound').show();
 		});
 	}
 	else {
@@ -65,11 +68,17 @@ function populatingCurrentTitlesToBoard () {
 		$(this).addClass('btn-success');
 		$('.answers').off('click');
 		$('#nextRound').show();
+		//updating score
+		score ++;
+		console.log(score);
+		$('#p1Score').html(score);
+		//checking if game if over, revealing winner and hiding everything else
 		if (currentRound === 11) {
 			console.log('game over!');
 			$('#nextRound').hide();
 			$('#winner').show();
 			$('.gameboard').hide();
+			$('#plot').hide();
 		} 
 	});
 	wrongAnswers.forEach(addingWrongTitles);
