@@ -1,5 +1,6 @@
 var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "Star Wars: Episode VI - Return of the Jedi", "Star Wars: Episode I - The Phantom Menace", "The Lion King", "Jurassic Park", "Jurassic World", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind","The Dark Knight"];
 var possibleMovies = allMovies;
+var currentRound = 1;
 var thisMoviePlot = '';
 var wrongAnswers = [];
 //trying to randomly select a movie to search
@@ -20,6 +21,7 @@ $($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right')
 //changing clolor of button on click
 $('#right').click(function() {
 	$(this).addClass('btn-success');
+	$('.answers').off('click');
 });
 //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
