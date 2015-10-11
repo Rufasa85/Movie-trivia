@@ -69,6 +69,7 @@ function populatingCurrentTitlesToBoard () {
 			console.log('game over!');
 			$('#nextRound').hide();
 			$('#winner').show();
+			$('.gameboard').hide();
 		} 
 	});
 	wrongAnswers.forEach(addingWrongTitles);
