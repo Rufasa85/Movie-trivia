@@ -22,6 +22,7 @@ $($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right')
 $('#right').click(function() {
 	$(this).addClass('btn-success');
 	$('.answers').off('click');
+	$('#nextRound').show();
 });
 //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
@@ -42,6 +43,7 @@ wrongAnswers.forEach(addingWrongTitles);
 
 $(document).ready(function () {
 	console.log('linked!');
+	$('#nextRound').hide();
 	//making the term searchable in the API
 	thisMovie = thisMovie.split(' ').join('+');
 	console.log(thisMovie);
@@ -54,5 +56,4 @@ $(document).ready(function () {
 			$('#plot').html(thisMoviePlot);
 		},
 	});
-	console.log(thisMovie);
 });
