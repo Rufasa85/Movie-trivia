@@ -25,5 +25,10 @@ function populatingCurrentTitlesToBoard () {
 };
 
 function generatingRound(round) {
-	
-}
+	generatingCurrentRoundTitles();
+	populatingCurrentTitlesToBoard();
+	round++;
+	if (round === 11) {
+		console.log('game over!')
+	} 
+};

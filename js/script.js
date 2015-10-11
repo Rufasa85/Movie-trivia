@@ -3,28 +3,29 @@ var currentRound = 1;
 var possibleMovies = allMovies;
 var thisMoviePlot = '';
 var wrongAnswers = [];
-//trying to randomly select a movie to search
-var thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
-//removing selected film from possible answers
-possibleMovies.splice(possibleMovies.indexOf(thisMovie), 1);
-console.log(possibleMovies);
-//generating other possible titles
-for (var i = 0; i<3; i++) {
-	var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
-	possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
-	wrongAnswers.push(thisWrongMovie);
-	console.log(thisWrongMovie);
-	console.log(possibleMovies);
-}
-//adding correct title to random spot on the screen
-$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
-//changing clolor of button on click
-$('#right').click(function() {
-	$(this).addClass('btn-success');
-	$('.answers').off('click');
-	$('#nextRound').show();
-});
-//populating the rest of the buttons with the wrong answers
+var thisMovie = '';
+// //trying to randomly select a movie to search
+// var thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
+// //removing selected film from possible answers
+// possibleMovies.splice(possibleMovies.indexOf(thisMovie), 1);
+// console.log(possibleMovies);
+// //generating other possible titles
+// for (var i = 0; i<3; i++) {
+// 	var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
+// 	possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
+// 	wrongAnswers.push(thisWrongMovie);
+// 	console.log(thisWrongMovie);
+// 	console.log(possibleMovies);
+// }
+// //adding correct title to random spot on the screen
+// $($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
+// //changing clolor of button on click
+// $('#right').click(function() {
+// 	$(this).addClass('btn-success');
+// 	$('.answers').off('click');
+// 	$('#nextRound').show();
+// });
+// //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
 	if (thisButton.html() === '') {
@@ -38,15 +39,72 @@ function addingWrongTitles(title) {
 	}
 };
 
-wrongAnswers.forEach(addingWrongTitles);
+//turning movie selection into a function
+function generatingCurrentRoundTitles() {
+	wrongAnswers = [];
+	//trying to randomly select a movie to search
+	thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
+	//removing selected film from possible answers
+	possibleMovies.splice(possibleMovies.indexOf(thisMovie), 1);
+	//generating other possible titles
+	for (var i = 0; i<3; i++) {
+		var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
+		possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
+		wrongAnswers.push(thisWrongMovie);
+	}
+};
+
+function populatingCurrentTitlesToBoard () {
+	//adding correct title to random spot on the screen
+	$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
+		//making the term searchable in the API
+	thisMovie = thisMovie.split(' ').join('+');
+	console.log(thisMovie);
+	//changing clolor of button on click
+	$('#right').click(function() {
+		$(this).addClass('btn-success');
+		$('.answers').off('click');
+		$('#nextRound').show();
+	});
+	wrongAnswers.forEach(addingWrongTitles);
+};
+
+function generatingRound() {
+	console.log(currentRound);
+	$('#round').html(currentRound);
+	generatingCurrentRoundTitles();
+	populatingCurrentTitlesToBoard();
+	$.ajax('http://www.omdbapi.com/?t=' + thisMovie , {
+		method:'GET',
+		success:function(data) {
+			thisMoviePlot = data.Plot;
+			console.log(thisMoviePlot);
+			$('#plot').html(thisMoviePlot);
+		},
+	});
+	currentRound++;
+	if (currentRound === 11) {
+		console.log('game over!')
+	} 
+};
+
+
+//wrongAnswers.forEach(addingWrongTitles);
 
 
 $(document).ready(function () {
 	console.log('linked!');
 	$('#nextRound').hide();
-	//making the term searchable in the API
-	thisMovie = thisMovie.split(' ').join('+');
-	console.log(thisMovie);
+	// //making the term searchable in the API
+	// thisMovie = thisMovie.split(' ').join('+');
+	// console.log(thisMovie);
+	generatingRound(currentRound);
+	$('#nextRound').click(function(){
+		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
+		generatingRound(currentRound);
+		$('#nextRound').hide();
+	})
+
 //fetching plot info for current answer
 	$.ajax('http://www.omdbapi.com/?t=' + thisMovie , {
 		method:'GET',
