@@ -11,49 +11,57 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row splash">
-				<div class="col-md-12">	
+		
+
+
+
+			<div class="jumbotron splash" >
+				<div class="container">
 					<h1 class='text-center'>Movie Trivia!</h1>
-				</div>	
-			</div>
-			<div class="row splash">
-				<div class="col-md-12">	
-					<p  class = 'text-center' data-toggle="modal" href='#modal-id'><u>How to play</u></p>
-					<div class="modal fade" id="modal-id">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-									<h4 class="modal-title text-center">How to Play!</h4>
-								</div>
-								<div class="modal-body">
-									<p 'text-center	'>the game lasts 10 rounds. each round, you will be presented with the plot of a random movie. Buzz in using the key displayed beneath your player.  After buzzing, click on the correct film. If you are right, you will get a point. If not, the other player will have a chance.  If both players answer incorrectly, no one gets points. First to 5 points wins!</p>
+					<div class="row splash">
+						<div class="col-md-12">	
+							<p  class = 'text-center' data-toggle="modal" href='#modal-id'><u>How to play</u></p>
+							<div class="modal fade" id="modal-id">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title text-center">How to Play!</h4>
+										</div>
+										<div class="modal-body">
+											<p 'text-center	'>the game lasts 10 rounds. each round, you will be presented with the plot of a random movie. Buzz in using the key displayed beneath your player.  After buzzing, click on the correct film. If you are right, you will get a point. If not, the other player will have a chance.  If both players answer incorrectly, no one gets points. First to 5 points wins!</p>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>	
-			</div>	
+						</div>	
+					</div>	
+				</div>
+			</div>
+
+
+
+
 			<div class="row splash">
-				<div class="col-md-12">	
-					<button type="button" class="btn btn-lg btn-block" id ='start-btn'>Start</button>
+				<div class="col-md-12 text-center">
+					<button type="button" class="btn btn-lg " id ='start-btn'>Start</button>
 				</div>	
 			</div>
 			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3">
+				<div class="col-xs-6 col-xs-offset-3">
 					<h1 class='text-center'>Round <span id = 'round'>1</span></h1>
 				</div>	
 			</div>
 			<div class="row scores">
-				<div class="col-md-3">
+				<div class="col-xs-3">
 					<h4 class='text-center'>Player 1</h4>
 					<h4 class='text-center'>Score: <span id ='p1Score'>0</span></h4>
 					<h4 class='text-center'>Press <img src="http://www.animatedimages.org/data/media/677/animated-keyboard-image-0017.gif">!</h4>
 				</div>	
-				<div class="col-md-6">
+				<div class="col-xs-6">
 					<h3 class='text-center' id='plot'></h3>
 				</div>	
-				<div class="col-md-3">
+				<div class="col-xs-3">
 					<h4 class='text-center'>Player 2</h4>
 					<h4 class='text-center'>Score: <span id ='p2Score'>0</span></h4>
 					<h4 class='text-center'>Press <img src="http://www.animatedimages.org/data/media/677/animated-keyboard-image-0013.gif">!</h4>

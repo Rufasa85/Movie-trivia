@@ -23,6 +23,8 @@ function allowingClicksOnTitles () {
 	$('.answers').click(function(){
 		if($(this).attr('id') === 'right') {
 			$(this).addClass('btn-success');
+			//changing button styling so they appear unselectable
+			$('.answers').css('opacity','0.5');
 			//checking who is guessing, updating correct score
 			if (currentGuesser === 'Player 1'){
 				player1score ++;
@@ -64,6 +66,8 @@ function allowingClicksOnTitles () {
 			}
 			else {
 				wrongGuesses = 0;
+				//changing button styling so they appear unselectable
+				$('.answers').css('opacity','0.5');
 				$('.answers').off('click');
 				$('#nextRound').show();
 			}
@@ -99,6 +103,8 @@ function generatingCurrentRoundTitles() {
 };
 //placing titles in random spots on the board
 function populatingCurrentTitlesToBoard () {
+	//resetting button opacity
+	$('.answers').css('opacity','1');
 	//adding correct title to random spot on the screen
 	$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
 		//making the term searchable in the API

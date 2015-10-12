@@ -20,3 +20,10 @@ body {
 .modal-content {
 	color:black;
 }
+
+.jumbotron {
+	background-image:url('http://ak.picdn.net/shutterstock/videos/3845792/preview/stock-footage-movie-theatre-with-a-green-screen-d-animation.jpg');
+	background-size:100% 100%;
+	background-repeat: no-repeat;
+	margin-top: 50px;
+}
