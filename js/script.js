@@ -7,16 +7,12 @@ var thisMovie = '';
 var player1score = 0;
 var player2score = 0;
 var currentGuesser = '';
+var wrongGuesses = 0;
 // //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
 	if (thisButton.html() === '') {
 		thisButton.html(title);
-		// thisButton.click(function() {
-		// 	thisButton.addClass('btn-danger');
-		// 	$('.answers').off('click');
-		// 	$('#nextRound').show();
-		// });
 	}
 	else {
 		addingWrongTitles(title);
@@ -26,27 +22,61 @@ function addingWrongTitles(title) {
 function allowingClicksOnTitles () {
 	$('.answers').click(function(){
 		if($(this).attr('id') === 'right') {
-			$(this).addClass('btn-success')
+			$(this).addClass('btn-success');
+			//checking who is guessing, updating correct score
+			if (currentGuesser === 'Player 1'){
+				player1score ++;
+				console.log(player1score);
+				$('#p1Score').html(player1score);
+			}
+			else if (currentGuesser === 'Player 2'){
+				player2score ++;
+				console.log(player2score);
+				$('#p2Score').html(player2score);
+			}
+			$('.answers').off('click');
+			$('#nextRound').show();
+			wrongGuesses = 0;
 		}
-		else{
+		else {
 			$(this).addClass('btn-danger');
-		};
-		$('.answers').off('click');
-		$('#nextRound').show();
-		//checking who is guessing, updating correct score
-		if (currentGuesser === 'Player 1'){
-			player1score ++;
-			console.log(player1score);
-			$('#p1Score').html(player1score);
+			//allowing other player to guess if first guess is wrong
+			wrongGuesses++;
+			if (wrongGuesses <= 1) {
+				if ( currentGuesser === 'Player 1') {
+					swal({
+						title:'Icorrect!',
+						text:' Player 2, your turn!!',
+						type:'error',
+					});
+					currentGuesser = 'Player 2';
+				}
+				else if (currentGuesser === 'Player 2') {
+					swal({
+						title:'Incorrect!',
+						text:'Player 1, your turn!',
+						type:'error',
+					});
+					currentGuesser = 'Player 1'
+				} 
+			}
+			else {
+				wrongGuesses = 0;
+				$('.answers').off('click');
+				$('#nextRound').show();
+			}
 		}
-		else if (currentGuesser === 'Player 2'){
-			player2score ++;
-			console.log(player2score);
-			$('#p2Score').html(player2score);
-		}
-		//checking if game if over, revealing winner and hiding everything else
+		//checking for winner, revealing winner and hiding everything else
 		if (currentRound === 11) {
-			console.log('game over!');
+			if(player1score > player2score){
+				$('#winningPlayer').html('Player 1 wins!');
+			}
+			else if (player2score > player1score) {
+				$('#winningPlayer').html('Player 2 wins!');
+			}
+			else {
+				$('#winningPlayer').html('It\'s a tie!!');
+			}
 			$('#nextRound').hide();
 			$('#winner').show();
 			$('.gameboard').hide();
@@ -75,31 +105,6 @@ function populatingCurrentTitlesToBoard () {
 		//making the term searchable in the API
 	thisMovie = thisMovie.split(' ').join('+');
 	console.log(thisMovie);
-	//changing clolor of button on click
-	// $('#right').click(function() {
-	// 	$(this).addClass('btn-success');
-	// 	$('.answers').off('click');
-	// 	$('#nextRound').show();
-	// 	//checking who is guessing, updating correct score
-	// 	if (currentGuesser === 'Player 1'){
-	// 		player1score ++;
-	// 		console.log(player1score);
-	// 		$('#p1Score').html(player1score);
-	// 	}
-	// 	else if (currentGuesser === 'Player 2'){
-	// 		player2score ++;
-	// 		console.log(player2score);
-	// 		$('#p2Score').html(player2score);
-	// 	}
-	// 	//checking if game if over, revealing winner and hiding everything else
-	// 	if (currentRound === 11) {
-	// 		console.log('game over!');
-	// 		$('#nextRound').hide();
-	// 		$('#winner').show();
-	// 		$('.gameboard').hide();
-	// 		$('#plot').hide();
-	// 	} 
-	// });
 	wrongAnswers.forEach(addingWrongTitles);
 };
 //setting up each individual round
