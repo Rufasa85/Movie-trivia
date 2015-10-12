@@ -11,6 +11,12 @@ img {
 	height:auto;
 }
 
+#plot img {
+	height: 150px;
+	max-width:100%;
+	width:auto;
+}
+
 body {
 	background: black;
 	color:white;

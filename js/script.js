@@ -38,7 +38,6 @@ function allowingClicksOnTitles () {
 			}
 			$('.answers').off('click');
 			$('#nextRound').show();
-			wrongGuesses = 0;
 		}
 		else {
 			$(this).addClass('btn-danger');
@@ -65,7 +64,6 @@ function allowingClicksOnTitles () {
 				} 
 			}
 			else {
-				wrongGuesses = 0;
 				//changing button styling so they appear unselectable
 				$('.answers').css('opacity','0.5');
 				$('.answers').off('click');
@@ -83,7 +81,7 @@ function allowingClicksOnTitles () {
 			$('#nextRound').hide();
 			$('#winner').show();
 			$('.gameboard').hide();
-			$('#plot').hide();
+			$('#plot').html('<img src = http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png>')
 		} 
 	});
 }
@@ -173,10 +171,10 @@ $(document).ready(function () {
 		$('.gameboard').show();
 		$('.scores').show();
 		$('.splash').hide();
-		$('#plot').show();
 	})
 	//resetting board for next question
 	$('#nextRound').click(function(){
+		wrongGuesses = 0;
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
 		generatingRound(currentRound);
 		$('#nextRound').hide();
@@ -191,6 +189,7 @@ $(document).ready(function () {
 		currentRound = 1;
 		player1score = 0;
 		player2score = 0;
+		wrongGuesses = 0;
 		possibleMovies = allMovies;
 		$('#p2Score').html(player2score);
 		$('#p1Score').html(player1score);
