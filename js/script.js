@@ -12,16 +12,48 @@ function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
 	if (thisButton.html() === '') {
 		thisButton.html(title);
-		thisButton.click(function() {
-			thisButton.addClass('btn-danger');
-			$('.answers').off('click');
-			$('#nextRound').show();
-		});
+		// thisButton.click(function() {
+		// 	thisButton.addClass('btn-danger');
+		// 	$('.answers').off('click');
+		// 	$('#nextRound').show();
+		// });
 	}
 	else {
 		addingWrongTitles(title);
 	}
 };
+//turning title clicks into a function i can call inside of buzzingIn
+function allowingClicksOnTitles () {
+	$('.answers').click(function(){
+		if($(this).attr('id') === 'right') {
+			$(this).addClass('btn-success')
+		}
+		else{
+			$(this).addClass('btn-danger');
+		};
+		$('.answers').off('click');
+		$('#nextRound').show();
+		//checking who is guessing, updating correct score
+		if (currentGuesser === 'Player 1'){
+			player1score ++;
+			console.log(player1score);
+			$('#p1Score').html(player1score);
+		}
+		else if (currentGuesser === 'Player 2'){
+			player2score ++;
+			console.log(player2score);
+			$('#p2Score').html(player2score);
+		}
+		//checking if game if over, revealing winner and hiding everything else
+		if (currentRound === 11) {
+			console.log('game over!');
+			$('#nextRound').hide();
+			$('#winner').show();
+			$('.gameboard').hide();
+			$('#plot').hide();
+		} 
+	});
+}
 //turning movie selection into a function
 function generatingCurrentRoundTitles() {
 	wrongAnswers = [];
@@ -44,30 +76,30 @@ function populatingCurrentTitlesToBoard () {
 	thisMovie = thisMovie.split(' ').join('+');
 	console.log(thisMovie);
 	//changing clolor of button on click
-	$('#right').click(function() {
-		$(this).addClass('btn-success');
-		$('.answers').off('click');
-		$('#nextRound').show();
-		//checking who is guessing, updating correct score
-		if (currentGuesser == 'Player 1'){
-			player1score ++;
-			console.log(player1score);
-			$('#p1Score').html(player1score);
-		}
-		else if (currentGuesser == 'Player 2'){
-			player2score ++;
-			console.log(player2score);
-			$('#p2Score').html(player2score);
-		}
-		//checking if game if over, revealing winner and hiding everything else
-		if (currentRound === 11) {
-			console.log('game over!');
-			$('#nextRound').hide();
-			$('#winner').show();
-			$('.gameboard').hide();
-			$('#plot').hide();
-		} 
-	});
+	// $('#right').click(function() {
+	// 	$(this).addClass('btn-success');
+	// 	$('.answers').off('click');
+	// 	$('#nextRound').show();
+	// 	//checking who is guessing, updating correct score
+	// 	if (currentGuesser === 'Player 1'){
+	// 		player1score ++;
+	// 		console.log(player1score);
+	// 		$('#p1Score').html(player1score);
+	// 	}
+	// 	else if (currentGuesser === 'Player 2'){
+	// 		player2score ++;
+	// 		console.log(player2score);
+	// 		$('#p2Score').html(player2score);
+	// 	}
+	// 	//checking if game if over, revealing winner and hiding everything else
+	// 	if (currentRound === 11) {
+	// 		console.log('game over!');
+	// 		$('#nextRound').hide();
+	// 		$('#winner').show();
+	// 		$('.gameboard').hide();
+	// 		$('#plot').hide();
+	// 	} 
+	// });
 	wrongAnswers.forEach(addingWrongTitles);
 };
 //setting up each individual round
@@ -114,6 +146,8 @@ function buzzingIn() {
 			//defining who buzzed in
 			currentGuesser = 'Player 2';
 		}
+		//setting other click listeners to only happen after buzzing
+		allowingClicksOnTitles();
 	});
 }
 
