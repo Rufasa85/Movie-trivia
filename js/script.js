@@ -79,8 +79,30 @@ function generatingRound() {
 	});
 	//iterating round number
 	currentRound++;
-	console.log(possibleMovies);
+	buzzingIn();
 };
+//testing keypress for each player!
+function buzzingIn() {
+	$(document).keydown(function( event ) {
+		if ( event.which == 81 ) {
+			//disabling keydown after buzz in
+			$(this).off('keydown');
+			swal({
+				title:'player 1',
+				text:'make your guess!',
+				type:'warning',
+			});
+		}
+		else if(event.which == 77) {
+			$(this).off('keydown');
+			swal({
+				title:'player 2',
+				text:'make your guess!',
+				type:'warning',
+			});
+		}
+	});
+}
 
 $(document).ready(function () {
 	//initializing view
@@ -93,15 +115,4 @@ $(document).ready(function () {
 		generatingRound(currentRound);
 		$('#nextRound').hide();
 	})
-	//testing keypress for each player!
-	$(document).keydown(function( event ) {
-		if ( event.which == 81 ) {
-			alert('q is working!!');
-			$(this).off('keydown');
-		}
-		else if(event.which == 77) {
-			alert('m is working!');
-			$(this).off('keydown');
-		}
-	});
 });
