@@ -98,6 +98,7 @@ function generatingRound() {
 		},
 	});
 	currentRound++;
+	console.log(possibleMovies);
 };
 
 
@@ -117,14 +118,12 @@ $(document).ready(function () {
 		generatingRound(currentRound);
 		$('#nextRound').hide();
 	})
-
-//fetching plot info for current answer
-	$.ajax('http://www.omdbapi.com/?t=' + thisMovie , {
-		method:'GET',
-		success:function(data) {
-			thisMoviePlot = data.Plot;
-			console.log(thisMoviePlot);
-			$('#plot').html(thisMoviePlot);
-		},
+	$(document).keydown(function( event ) {
+		if ( event.which == 81 ) {
+			alert('q is working!!');
+		}
+		else if(event.which == 77) {
+			alert('m is working!');
+		}
 	});
 });
