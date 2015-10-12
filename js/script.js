@@ -40,6 +40,8 @@ function allowingClicksOnTitles () {
 		}
 		else {
 			$(this).addClass('btn-danger');
+			//removing click event from this title, so it cannot be clicked twice
+			$(this).off('click');
 			//allowing other player to guess if first guess is wrong
 			wrongGuesses++;
 			if (wrongGuesses <= 1) {
@@ -157,11 +159,35 @@ $(document).ready(function () {
 	//initializing view
 	$('#nextRound').hide();
 	$('#winner').hide();
+	$('.gameboard').hide();
+	$('.scores').hide();
 	generatingRound(currentRound);
+	//showing gameboard when start button is clicked
+	$('#start-btn').click(function(){
+		$('.gameboard').show();
+		$('.scores').show();
+		$('.splash').hide();
+	})
 	//resetting board for next question
 	$('#nextRound').click(function(){
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
 		generatingRound(currentRound);
 		$('#nextRound').hide();
 	})
+	//resetting game when reset button is clicked
+	$('#newGame').click(function(){
+		$('#nextRound').hide();
+		$('#winner').hide();
+		$('.gameboard').hide();
+		$('.scores').hide();
+		$('.splash').show();
+		currentRound = 1;
+		player1score = 0;
+		player2score = 0;
+		possibleMovies = allMovies;
+		$('#p2Score').html(player2score);
+		$('#p1score').html(player1score);
+		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
+		generatingRound(currentRound);
+	});
 });
