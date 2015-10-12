@@ -5,27 +5,6 @@ var thisMoviePlot = '';
 var wrongAnswers = [];
 var thisMovie = '';
 var score = 0;
-// //trying to randomly select a movie to search
-// var thisMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
-// //removing selected film from possible answers
-// possibleMovies.splice(possibleMovies.indexOf(thisMovie), 1);
-// console.log(possibleMovies);
-// //generating other possible titles
-// for (var i = 0; i<3; i++) {
-// 	var thisWrongMovie = possibleMovies[Math.floor(Math.random() * possibleMovies.length)];
-// 	possibleMovies.splice(possibleMovies.indexOf(thisWrongMovie), 1);
-// 	wrongAnswers.push(thisWrongMovie);
-// 	console.log(thisWrongMovie);
-// 	console.log(possibleMovies);
-// }
-// //adding correct title to random spot on the screen
-// $($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
-// //changing clolor of button on click
-// $('#right').click(function() {
-// 	$(this).addClass('btn-success');
-// 	$('.answers').off('click');
-// 	$('#nextRound').show();
-// });
 // //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
@@ -41,7 +20,6 @@ function addingWrongTitles(title) {
 		addingWrongTitles(title);
 	}
 };
-
 //turning movie selection into a function
 function generatingCurrentRoundTitles() {
 	wrongAnswers = [];
@@ -56,7 +34,7 @@ function generatingCurrentRoundTitles() {
 		wrongAnswers.push(thisWrongMovie);
 	}
 };
-
+//placing titles in random spots on the board
 function populatingCurrentTitlesToBoard () {
 	//adding correct title to random spot on the screen
 	$($(".answers")[Math.floor(Math.random()*4)]).html(thisMovie).attr('id','right');
@@ -83,47 +61,47 @@ function populatingCurrentTitlesToBoard () {
 	});
 	wrongAnswers.forEach(addingWrongTitles);
 };
-
+//setting up each individual round
 function generatingRound() {
 	console.log(currentRound);
 	$('#round').html(currentRound);
 	generatingCurrentRoundTitles();
 	populatingCurrentTitlesToBoard();
+	//retrieving movie plot from OMDB API
 	$.ajax('http://www.omdbapi.com/?t=' + thisMovie , {
 		method:'GET',
 		success:function(data) {
 			thisMoviePlot = data.Plot;
 			console.log(thisMoviePlot);
+			//displaying current plot on screen
 			$('#plot').html(thisMoviePlot);
 		},
 	});
+	//iterating round number
 	currentRound++;
 	console.log(possibleMovies);
 };
 
-
-//wrongAnswers.forEach(addingWrongTitles);
-
-
 $(document).ready(function () {
-	console.log('linked!');
+	//initializing view
 	$('#nextRound').hide();
 	$('#winner').hide();
-	// //making the term searchable in the API
-	// thisMovie = thisMovie.split(' ').join('+');
-	// console.log(thisMovie);
 	generatingRound(currentRound);
+	//resetting board for next question
 	$('#nextRound').click(function(){
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
 		generatingRound(currentRound);
 		$('#nextRound').hide();
 	})
+	//testing keypress for each player!
 	$(document).keydown(function( event ) {
 		if ( event.which == 81 ) {
 			alert('q is working!!');
+			$(this).off('keydown');
 		}
 		else if(event.which == 77) {
 			alert('m is working!');
+			$(this).off('keydown');
 		}
 	});
 });
