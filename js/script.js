@@ -67,15 +67,12 @@ function allowingClicksOnTitles () {
 			}
 		}
 		//checking for winner, revealing winner and hiding everything else
-		if (currentRound === 11) {
-			if(player1score > player2score){
-				$('#winningPlayer').html('Player 1 wins!');
-			}
-			else if (player2score > player1score) {
-				$('#winningPlayer').html('Player 2 wins!');
+		if (player1score === 5 || player2score === 5){
+			if (player1score === 5){
+				$('#winningPlayer').html('Player 1 wins!')
 			}
 			else {
-				$('#winningPlayer').html('It\'s a tie!!');
+				$('#winningPlayer').html('Player 2 wins!');
 			}
 			$('#nextRound').hide();
 			$('#winner').show();
