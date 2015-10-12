@@ -4,7 +4,9 @@ var possibleMovies = allMovies;
 var thisMoviePlot = '';
 var wrongAnswers = [];
 var thisMovie = '';
-var score = 0;
+var player1score = 0;
+var player2score = 0;
+var currentGuesser = '';
 // //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
@@ -46,10 +48,17 @@ function populatingCurrentTitlesToBoard () {
 		$(this).addClass('btn-success');
 		$('.answers').off('click');
 		$('#nextRound').show();
-		//updating score
-		score ++;
-		console.log(score);
-		$('#p1Score').html(score);
+		//checking who is guessing, updating correct score
+		if (currentGuesser == 'Player 1'){
+			player1score ++;
+			console.log(player1score);
+			$('#p1Score').html(player1score);
+		}
+		else if (currentGuesser == 'Player 2'){
+			player2score ++;
+			console.log(player2score);
+			$('#p2Score').html(player2score);
+		}
 		//checking if game if over, revealing winner and hiding everything else
 		if (currentRound === 11) {
 			console.log('game over!');
@@ -92,6 +101,8 @@ function buzzingIn() {
 				text:'make your guess!',
 				type:'warning',
 			});
+			//defining who buzzed in
+			currentGuesser = 'Player 1';
 		}
 		else if(event.which == 77) {
 			$(this).off('keydown');
@@ -100,6 +111,8 @@ function buzzingIn() {
 				text:'make your guess!',
 				type:'warning',
 			});
+			//defining who buzzed in
+			currentGuesser = 'Player 2';
 		}
 	});
 }
