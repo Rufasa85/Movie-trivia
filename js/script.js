@@ -1,6 +1,7 @@
-var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "The Lion King", "Jurassic Park", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind", "Grease", "Shrek", "Spider-Man", "Independence Day", 'Ghostbusters', "Beverly Hills Cop", "Home Alone", "Pirates of the Caribbean: The Curse of the Black Pearl", "Batman", "The Lord of the Rings: The Return of the King", "Finding Nemo", "The Sixth Sense", "Back to the Future", "Harry Potter and the Sorcerer's Stone", "Twister", "Superman", "Men in Black", "Transformers", "Mrs. Doubtfire", "Toy Story", "The Hunger Games", "Aladdin", "Iron Man", "Monsters Inc", "Frozen", "Ghost", "How the Grinch Stole Christmas", "The Terminator", "Top Gun", "The Matrix", "Saving Private Ryan", "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "Despicable Me" ];
+var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "The Lion King", "Jurassic Park", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind", "Grease", "Shrek", "Spider-Man", "Independence Day", 'Ghostbusters', "Beverly Hills Cop", "Home Alone", "Pirates of the Caribbean: The Curse of the Black Pearl", "Batman", "The Lord of the Rings: The Return of the King", "Finding Nemo", "The Sixth Sense", "Back to the Future", "Harry Potter and the Sorcerer's Stone", "Twister", "Superman", "Men in Black", "Transformers", "Mrs. Doubtfire", "Toy Story", "The Hunger Games", "Aladdin", "Iron Man", "Monsters Inc", "Frozen", "Ghost", "How the Grinch Stole Christmas", "The Terminator", "Top Gun", "The Matrix", "Saving Private Ryan", "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "Despicable Me", "Crocodile Dundee", "Gremlins", "Beauty and the Beast", "Armageddon", "An Officer and a Gentleman", "Alice in Wonderland", "Kramer vs. Kramer", "Inside Out", "Cast Away", "The Incredibles", "Furious 7", "American Sniper", "Rain Man", "The Fugitive", "Dances with Wolves", "3 Men and a Baby", "The Godfather", "Casablanca", "The Big Lebowski", "The NeverEnding Story", "Caddyshack", "Homeward Bound: The Incredible Journey", "Labyrinth", "Pulp Fiction", "Love Actually", "Notting Hill", "Goodfellas", "My Neighbor Totoro", "Spirited Away", "Anchorman: The Legend of Ron Burgundy", "The Shawshank Redemption", "Pleasantville", "Major League", "Kill Bill: Vol. 1", "Good Will Hunting", "The Sandlot", "Super Mario Bros.", "The Land Before Time", "Free Willy", "Lost in Translation", "Princess Mononoke", "Ponyo", "Edward Scissorhands", "The Jerk", "The Goonies", "The Lost Boys", "Fight Club", "The Life Aquatic with Steve Zissou", "Raging Bull", "I Heart Huckabees", "Lawrence of Arabia", "This Is Spinal Tap", "Thelma & Louise", "Alien", "Die Another Day" ];
+console.log(allMovies.length);
 var currentRound = 1;
-var possibleMovies = allMovies;
+var possibleMovies = allMovies.slice(0,allMovies.length);
 var thisMoviePlot = '';
 var wrongAnswers = [];
 var thisMovie = '';
@@ -190,7 +191,7 @@ $(document).ready(function () {
 		player1score = 0;
 		player2score = 0;
 		wrongGuesses = 0;
-		possibleMovies = allMovies;
+		possibleMovies = allMovies.slice(0,allMovies.length);
 		$('#p2Score').html(player2score);
 		$('#p1Score').html(player1score);
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
