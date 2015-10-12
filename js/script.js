@@ -173,6 +173,7 @@ $(document).ready(function () {
 		$('.gameboard').show();
 		$('.scores').show();
 		$('.splash').hide();
+		$('#plot').show();
 	})
 	//resetting board for next question
 	$('#nextRound').click(function(){
@@ -192,7 +193,7 @@ $(document).ready(function () {
 		player2score = 0;
 		possibleMovies = allMovies;
 		$('#p2Score').html(player2score);
-		$('#p1score').html(player1score);
+		$('#p1Score').html(player1score);
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
 		generatingRound(currentRound);
 	});
