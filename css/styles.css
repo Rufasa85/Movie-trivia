@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+@font-face {
+    font-family: Limelight; 
+    src: url('Limelight.ttf');
+}
+
+body {
+	background: black;
+	color:white;
+	font-family: 'Nunito', sans-serif;
+}
+>>>>>>> master
 .btn-block {
 	border:1px solid black;
 }
@@ -11,16 +24,28 @@ img {
 	height:auto;
 }
 
+<<<<<<< HEAD
 #plot img {
 	height: 150px;
+=======
+#oscar {
+	height: 350px;
+>>>>>>> master
 	max-width:100%;
 	width:auto;
 }
 
+<<<<<<< HEAD
 body {
 	background: black;
 	color:white;
 	font-family: 'Nunito', sans-serif;
+=======
+#posterpic {
+	max-width:40%;
+	width:auto;
+	height:auto;
+>>>>>>> master
 }
 
 .modal-content {
@@ -28,8 +53,25 @@ body {
 }
 
 .jumbotron {
+<<<<<<< HEAD
 	background-image:url('http://ak.picdn.net/shutterstock/videos/3845792/preview/stock-footage-movie-theatre-with-a-green-screen-d-animation.jpg');
 	background-size:100% 100%;
 	background-repeat: no-repeat;
 	margin-top: 50px;
+=======
+	background:inherit;
+	background-image:url('http://driveins.paulbaden.com/images/marquee.gif');
+	background-repeat:no-repeat;
+	background-position: center;
+	background-size:100% 100%;
+}
+
+.redButtons {
+	margin-bottom:10px;
+	background-color:#e74c3c;
+}
+
+.jumbotron h1 {
+	font-family: Limelight;
+>>>>>>> master
 }
