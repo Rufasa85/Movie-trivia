@@ -1,26 +1,16 @@
-<<<<<<< HEAD
-var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "The Lion King", "Jurassic Park", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind", "Grease", "Shrek", "Spider-Man", "Independence Day", 'Ghostbusters', "Beverly Hills Cop", "Home Alone", "Pirates of the Caribbean: The Curse of the Black Pearl", "Batman", "The Lord of the Rings: The Return of the King", "Finding Nemo", "The Sixth Sense", "Back to the Future", "Harry Potter and the Sorcerer's Stone", "Twister", "Superman", "Men in Black", "Transformers", "Mrs. Doubtfire", "Toy Story", "The Hunger Games", "Aladdin", "Iron Man", "Monsters Inc", "Frozen", "Ghost", "How the Grinch Stole Christmas", "The Terminator", "Top Gun", "The Matrix", "Saving Private Ryan", "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "Despicable Me", "Crocodile Dundee", "Gremlins", "Beauty and the Beast", "Armageddon", "An Officer and a Gentleman", "Alice in Wonderland", "Kramer vs. Kramer", "Inside Out", "Cast Away", "The Incredibles", "Furious 7", "American Sniper", "Rain Man", "The Fugitive", "Dances with Wolves", "3 Men and a Baby", "The Godfather", "Casablanca", "The Big Lebowski", "The NeverEnding Story", "Caddyshack", "Homeward Bound: The Incredible Journey", "Labyrinth", "Pulp Fiction", "Love Actually", "Notting Hill", "Goodfellas", "My Neighbor Totoro", "Spirited Away", "Anchorman: The Legend of Ron Burgundy", "The Shawshank Redemption", "Pleasantville", "Major League", "Kill Bill: Vol. 1", "Good Will Hunting", "The Sandlot", "Super Mario Bros.", "The Land Before Time", "Free Willy", "Lost in Translation", "Princess Mononoke", "Ponyo", "Edward Scissorhands", "The Jerk", "The Goonies", "The Lost Boys", "Fight Club", "The Life Aquatic with Steve Zissou", "Raging Bull", "I Heart Huckabees", "Lawrence of Arabia", "This Is Spinal Tap", "Thelma & Louise", "Alien", "Die Another Day", "There Will Be Blood", "The Royal Tenenbaums", "Jackie Brown", "Matilda", "Scream", "A Nightmare on Elm Street", "Mad Max", "Groundhog Day", "Django Unchained", "Stripes", "Guardians of the Galaxy", "The Silence of the Lambs", "Bill & Ted's Excellent Adventure","Amélie", "Legally Blonde" ];
-=======
 var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "The Lion King", "Jurassic Park", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind", "Grease", "Shrek", "Spider-Man", "Independence Day", 'Ghostbusters', "Beverly Hills Cop", "Home Alone", "Pirates of the Caribbean: The Curse of the Black Pearl", "Batman", "The Lord of the Rings: The Return of the King", "Finding Nemo", "The Sixth Sense", "Back to the Future", "Harry Potter and the Sorcerer's Stone", "Twister", "Superman", "Men in Black", "Transformers", "Mrs. Doubtfire", "Toy Story", "The Hunger Games", "Aladdin", "Iron Man", "Monsters Inc", "Frozen", "Ghost", "How the Grinch Stole Christmas", "The Terminator", "Top Gun", "The Matrix", "Saving Private Ryan", "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "Despicable Me", "Crocodile Dundee", "Gremlins", "Beauty and the Beast", "Armageddon", "An Officer and a Gentleman", "Alice in Wonderland", "Kramer vs. Kramer", "Inside Out", "Cast Away", "The Incredibles", "Furious 7", "American Sniper", "Rain Man", "The Fugitive", "Dances with Wolves", "3 Men and a Baby", "The Godfather", "Casablanca", "The Big Lebowski", "The NeverEnding Story", "Caddyshack", "Homeward Bound: The Incredible Journey", "Labyrinth", "Pulp Fiction", "Love Actually", "Notting Hill", "Goodfellas", "My Neighbor Totoro", "Spirited Away", "Anchorman: The Legend of Ron Burgundy", "The Shawshank Redemption", "Pleasantville", "Major League", "Kill Bill: Vol. 1", "Good Will Hunting", "The Sandlot", "Super Mario Bros.", "The Land Before Time", "Free Willy", "Lost in Translation", "Princess Mononoke", "Ponyo", "Edward Scissorhands", "The Jerk", "The Goonies", "The Lost Boys", "Fight Club", "The Life Aquatic with Steve Zissou", "Raging Bull", "I Heart Huckabees", "Lawrence of Arabia", "This Is Spinal Tap", "Cool Runnings", "Alien", "Die Another Day", "There Will Be Blood", "The Royal Tenenbaums", "Jackie Brown", "Matilda", "Scream", "A Nightmare on Elm Street", "Mad Max", "Groundhog Day", "Django Unchained", "Stripes", "Guardians of the Galaxy", "The Silence of the Lambs", "Legally Blonde" ];
->>>>>>> master
 console.log(allMovies.length);
 var currentRound = 1;
 var possibleMovies = allMovies.slice(0,allMovies.length);
 var thisMoviePlot = '';
 var wrongAnswers = [];
 var thisMovie = '';
-<<<<<<< HEAD
-=======
 var thisMoviePoster = '';
->>>>>>> master
 var player1score = 0;
 var player2score = 0;
 var currentGuesser = '';
 var wrongGuesses = 0;
-<<<<<<< HEAD
-=======
 var winner = false;
->>>>>>> master
 // //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
@@ -36,11 +26,6 @@ function allowingClicksOnTitles () {
 	$('.answers').click(function(){
 		if($(this).attr('id') === 'right') {
 			$(this).addClass('btn-success');
-<<<<<<< HEAD
-			//changing button styling so they appear unselectable
-			$('.answers').css('opacity','0.5');
-=======
->>>>>>> master
 			//checking who is guessing, updating correct score
 			if (currentGuesser === 'Player 1'){
 				player1score ++;
@@ -52,14 +37,10 @@ function allowingClicksOnTitles () {
 				console.log(player2score);
 				$('#p2Score').html(player2score);
 			}
-<<<<<<< HEAD
-			$('.answers').off('click');
-=======
 			//hiding answers and showing poster after round!
 			$('.answers').off('click').hide();
 			$('#plot').html('Correct!');
 			$('#poster').show();
->>>>>>> master
 			$('#nextRound').show();
 		}
 		else {
@@ -71,11 +52,7 @@ function allowingClicksOnTitles () {
 			if (wrongGuesses <= 1) {
 				if ( currentGuesser === 'Player 1') {
 					swal({
-<<<<<<< HEAD
-						title:'Icorrect!',
-=======
 						title:'Incorrect!',
->>>>>>> master
 						text:' Player 2, your turn!!',
 						type:'error',
 					});
@@ -91,29 +68,6 @@ function allowingClicksOnTitles () {
 				} 
 			}
 			else {
-<<<<<<< HEAD
-				//changing button styling so they appear unselectable
-				$('.answers').css('opacity','0.5');
-				$('.answers').off('click');
-				$('#nextRound').show();
-			}
-		}
-		//checking for winner, revealing winner and hiding everything else
-		if (player1score === 5 || player2score === 5){
-			if (player1score === 5){
-				$('#winningPlayer').html('Player 1 wins!')
-			}
-			else {
-				$('#winningPlayer').html('Player 2 wins!');
-			}
-			$('#nextRound').hide();
-			$('#winner').show();
-			$('.gameboard').hide();
-			$('#plot').html('<img src = http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png>')
-		} 
-	});
-}
-=======
 				//hiding answers and showing poster after round!
 				$('.answers').off('click').hide();
 				$('#plot').html('Wrong!');
@@ -155,7 +109,6 @@ function checkingWinner() {
 		$('#oscar').show();
 	} 
 };
->>>>>>> master
 //turning movie selection into a function
 function generatingCurrentRoundTitles() {
 	wrongAnswers = [];
@@ -183,11 +136,8 @@ function populatingCurrentTitlesToBoard () {
 };
 //setting up each individual round
 function generatingRound() {
-<<<<<<< HEAD
-=======
 	//resetting current guesser
 	currentGuesser = '';
->>>>>>> master
 	console.log(currentRound);
 	$('#round').html(currentRound);
 	generatingCurrentRoundTitles();
@@ -197,11 +147,6 @@ function generatingRound() {
 		method:'GET',
 		success:function(data) {
 			thisMoviePlot = data.Plot;
-<<<<<<< HEAD
-			console.log(thisMoviePlot);
-			//displaying current plot on screen
-			$('#plot').html(thisMoviePlot);
-=======
 			//loading in poster to display after question is answered
 			thisMoviePoster = data.Poster;
 			console.log(thisMoviePlot);
@@ -210,7 +155,6 @@ function generatingRound() {
 			//displaying current plot and answers on screen after AJAX request
 			$('#plot').html(thisMoviePlot).show();
 			$('.answers').show();
->>>>>>> master
 		},
 	});
 	//iterating round number
@@ -252,29 +196,13 @@ $(document).ready(function () {
 	$('#winner').hide();
 	$('.gameboard').hide();
 	$('.scores').hide();
-<<<<<<< HEAD
-	generatingRound(currentRound);
-=======
 	$('#poster').hide();
 	$('#oscar').hide();
->>>>>>> master
 	//showing gameboard when start button is clicked
 	$('#start-btn').click(function(){
 		$('.gameboard').show();
 		$('.scores').show();
 		$('.splash').hide();
-<<<<<<< HEAD
-	})
-	//resetting board for next question
-	$('#nextRound').click(function(){
-		wrongGuesses = 0;
-		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
-		generatingRound(currentRound);
-		$('#nextRound').hide();
-	})
-	//resetting game when reset button is clicked
-	$('#newGame').click(function(){
-=======
 		generatingRound(currentRound);
 	})
 	//resetting board for next question
@@ -293,17 +221,13 @@ $(document).ready(function () {
 	//resetting game when reset button is clicked
 	$('#newGame').click(function(){
 		$('#poster').hide();
->>>>>>> master
 		$('#nextRound').hide();
 		$('#winner').hide();
 		$('.gameboard').hide();
 		$('.scores').hide();
 		$('.splash').show();
-<<<<<<< HEAD
-=======
 		$('#oscar').hide();
 		winner = false;
->>>>>>> master
 		currentRound = 1;
 		player1score = 0;
 		player2score = 0;
@@ -311,11 +235,6 @@ $(document).ready(function () {
 		possibleMovies = allMovies.slice(0,allMovies.length);
 		$('#p2Score').html(player2score);
 		$('#p1Score').html(player1score);
-<<<<<<< HEAD
-		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
-		generatingRound(currentRound);
-=======
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id').show();
->>>>>>> master
 	});
 });
