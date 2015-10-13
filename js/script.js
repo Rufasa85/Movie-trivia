@@ -5,6 +5,7 @@ var possibleMovies = allMovies.slice(0,allMovies.length);
 var thisMoviePlot = '';
 var wrongAnswers = [];
 var thisMovie = '';
+var thisMoviePoster = '';
 var player1score = 0;
 var player2score = 0;
 var currentGuesser = '';
@@ -122,7 +123,11 @@ function generatingRound() {
 		method:'GET',
 		success:function(data) {
 			thisMoviePlot = data.Plot;
+			//loading in poster to display after question is answered
+			thisMoviePoster = data.Poster;
 			console.log(thisMoviePlot);
+			console.log(thisMoviePoster);
+			$('#poster').html('<img id=posterpic src =' + thisMoviePoster + '>')
 			//displaying current plot on screen
 			$('#plot').html(thisMoviePlot);
 		},
