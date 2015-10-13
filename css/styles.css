@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Limelight; 
+    src: url('Limelight.ttf');
+}
 
 body {
 	background: black;
@@ -44,4 +48,8 @@ img {
 .redButtons {
 	margin-bottom:10px;
 	background-color:#e74c3c;
+}
+
+.jumbotron h1 {
+	font-family: Limelight;
 }
