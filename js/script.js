@@ -152,7 +152,7 @@ function generatingRound() {
 			console.log(thisMoviePlot);
 			console.log(thisMoviePoster);
 			$('#poster').html('<img id=posterpic src =' + thisMoviePoster + '>').error(function(){
-					$(this).html('');
+				$(this).html('');
 			});
 			//displaying current plot and answers on screen after AJAX request
 			$('#plot').html(thisMoviePlot).show();
