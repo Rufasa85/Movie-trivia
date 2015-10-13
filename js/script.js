@@ -147,11 +147,13 @@ function generatingRound() {
 		method:'GET',
 		success:function(data) {
 			thisMoviePlot = data.Plot;
-			//loading in poster to display after question is answered
+			//loading in poster to display after question is answered, leaving empty if error occurs
 			thisMoviePoster = data.Poster;
 			console.log(thisMoviePlot);
 			console.log(thisMoviePoster);
-			$('#poster').html('<img id=posterpic src =' + thisMoviePoster + '>')
+			$('#poster').html('<img id=posterpic src =' + thisMoviePoster + '>').error(function(){
+					$(this).html('');
+			});
 			//displaying current plot and answers on screen after AJAX request
 			$('#plot').html(thisMoviePlot).show();
 			$('.answers').show();
