@@ -1,0 +1,35 @@
+.btn-block {
+	border:1px solid black;
+}
+
+button {
+	background:#2980b9;
+}
+
+img {
+	max-width:12%;
+	height:auto;
+}
+
+#plot img {
+	height: 150px;
+	max-width:100%;
+	width:auto;
+}
+
+body {
+	background: black;
+	color:white;
+	font-family: 'Nunito', sans-serif;
+}
+
+.modal-content {
+	color:black;
+}
+
+.jumbotron {
+	background-image:url('http://ak.picdn.net/shutterstock/videos/3845792/preview/stock-footage-movie-theatre-with-a-green-screen-d-animation.jpg');
+	background-size:100% 100%;
+	background-repeat: no-repeat;
+	margin-top: 50px;
+}
