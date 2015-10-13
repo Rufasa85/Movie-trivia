@@ -1,4 +1,4 @@
-var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "The Lion King", "Jurassic Park", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind", "Grease", "Shrek", "Spider-Man", "Independence Day", 'Ghostbusters', "Beverly Hills Cop", "Home Alone", "Pirates of the Caribbean: The Curse of the Black Pearl", "Batman", "The Lord of the Rings: The Return of the King", "Finding Nemo", "The Sixth Sense", "Back to the Future", "Harry Potter and the Sorcerer's Stone", "Twister", "Superman", "Men in Black", "Transformers", "Mrs. Doubtfire", "Toy Story", "The Hunger Games", "Aladdin", "Iron Man", "Monsters Inc", "Frozen", "Ghost", "How the Grinch Stole Christmas", "The Terminator", "Top Gun", "The Matrix", "Saving Private Ryan", "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "Despicable Me", "Crocodile Dundee", "Gremlins", "Beauty and the Beast", "Armageddon", "An Officer and a Gentleman", "Alice in Wonderland", "Kramer vs. Kramer", "Inside Out", "Cast Away", "The Incredibles", "Furious 7", "American Sniper", "Rain Man", "The Fugitive", "Dances with Wolves", "3 Men and a Baby", "The Godfather", "Casablanca", "The Big Lebowski", "The NeverEnding Story", "Caddyshack", "Homeward Bound: The Incredible Journey", "Labyrinth", "Pulp Fiction", "Love Actually", "Notting Hill", "Goodfellas", "My Neighbor Totoro", "Spirited Away", "Anchorman: The Legend of Ron Burgundy", "The Shawshank Redemption", "Pleasantville", "Major League", "Kill Bill: Vol. 1", "Good Will Hunting", "The Sandlot", "Super Mario Bros.", "The Land Before Time", "Free Willy", "Lost in Translation", "Princess Mononoke", "Ponyo", "Edward Scissorhands", "The Jerk", "The Goonies", "The Lost Boys", "Fight Club", "The Life Aquatic with Steve Zissou", "Raging Bull", "I Heart Huckabees", "Lawrence of Arabia", "This Is Spinal Tap", "Thelma & Louise", "Alien", "Die Another Day", "There Will Be Blood", "The Royal Tenenbaums", "Jackie Brown", "Matilda", "Scream", "A Nightmare on Elm Street", "Mad Max", "Groundhog Day", "Django Unchained", "Stripes", "Guardians of the Galaxy", "The Silence of the Lambs", "Bill & Ted's Excellent Adventure","Amélie", "Legally Blonde" ];
+var allMovies = ["Star Wars: Episode IV - A New Hope", "Gone With the Wind", "Citizen Kane",'Titanic', 'Avatar', "E.T. the Extra-Terrestrial", "The Lion King", "Jurassic Park", "Raiders of the Lost Ark", "Forrest Gump", "The Avengers", "Close Encounters of the Third Kind", "Grease", "Shrek", "Spider-Man", "Independence Day", 'Ghostbusters', "Beverly Hills Cop", "Home Alone", "Pirates of the Caribbean: The Curse of the Black Pearl", "Batman", "The Lord of the Rings: The Return of the King", "Finding Nemo", "The Sixth Sense", "Back to the Future", "Harry Potter and the Sorcerer's Stone", "Twister", "Superman", "Men in Black", "Transformers", "Mrs. Doubtfire", "Toy Story", "The Hunger Games", "Aladdin", "Iron Man", "Monsters Inc", "Frozen", "Ghost", "How the Grinch Stole Christmas", "The Terminator", "Top Gun", "The Matrix", "Saving Private Ryan", "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "Despicable Me", "Crocodile Dundee", "Gremlins", "Beauty and the Beast", "Armageddon", "An Officer and a Gentleman", "Alice in Wonderland", "Kramer vs. Kramer", "Inside Out", "Cast Away", "The Incredibles", "Furious 7", "American Sniper", "Rain Man", "The Fugitive", "Dances with Wolves", "3 Men and a Baby", "The Godfather", "Casablanca", "The Big Lebowski", "The NeverEnding Story", "Caddyshack", "Homeward Bound: The Incredible Journey", "Labyrinth", "Pulp Fiction", "Love Actually", "Notting Hill", "Goodfellas", "My Neighbor Totoro", "Spirited Away", "Anchorman: The Legend of Ron Burgundy", "The Shawshank Redemption", "Pleasantville", "Major League", "Kill Bill: Vol. 1", "Good Will Hunting", "The Sandlot", "Super Mario Bros.", "The Land Before Time", "Free Willy", "Lost in Translation", "Princess Mononoke", "Ponyo", "Edward Scissorhands", "The Jerk", "The Goonies", "The Lost Boys", "Fight Club", "The Life Aquatic with Steve Zissou", "Raging Bull", "I Heart Huckabees", "Lawrence of Arabia", "This Is Spinal Tap", "Thelma & Louise", "Alien", "Die Another Day", "There Will Be Blood", "The Royal Tenenbaums", "Jackie Brown", "Matilda", "Scream", "A Nightmare on Elm Street", "Mad Max", "Groundhog Day", "Django Unchained", "Stripes", "Guardians of the Galaxy", "The Silence of the Lambs", "Legally Blonde" ];
 console.log(allMovies.length);
 var currentRound = 1;
 var possibleMovies = allMovies.slice(0,allMovies.length);
@@ -10,6 +10,7 @@ var player1score = 0;
 var player2score = 0;
 var currentGuesser = '';
 var wrongGuesses = 0;
+var winner = false;
 // //populating the rest of the buttons with the wrong answers
 function addingWrongTitles(title) {
 	var thisButton = $($(".answers")[Math.floor(Math.random()*4)]);
@@ -51,7 +52,7 @@ function allowingClicksOnTitles () {
 			if (wrongGuesses <= 1) {
 				if ( currentGuesser === 'Player 1') {
 					swal({
-						title:'Icorrect!',
+						title:'Incorrect!',
 						text:' Player 2, your turn!!',
 						type:'error',
 					});
@@ -69,7 +70,7 @@ function allowingClicksOnTitles () {
 			else {
 				//hiding answers and showing poster after round!
 				$('.answers').off('click').hide();
-				$('#plot').html('Correct!');
+				$('#plot').html('Wrong!');
 				$('#poster').show();
 				$('#nextRound').show();
 			}
@@ -79,6 +80,8 @@ function allowingClicksOnTitles () {
 //checking for winner, revealing winner and hiding everything else
 function checkingWinner() {
 	if (player1score === 5 || player2score === 5){
+		//verifying winner to hide plot in last round
+		winner = true;
 		if (player1score === 5){
 			$('#winningPlayer').html('Player 1 wins!')
 		}
@@ -88,7 +91,8 @@ function checkingWinner() {
 		$('#nextRound').hide();
 		$('#winner').show();
 		$('.gameboard').hide();
-		$('#plot').html('<img src = http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png>')
+		$('#plot').html('<img src = http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png>');
+		$('#oscar').show();
 	} 
 };
 //turning movie selection into a function
@@ -118,6 +122,8 @@ function populatingCurrentTitlesToBoard () {
 };
 //setting up each individual round
 function generatingRound() {
+	//resetting current guesser
+	currentGuesser = '';
 	console.log(currentRound);
 	$('#round').html(currentRound);
 	generatingCurrentRoundTitles();
@@ -132,8 +138,9 @@ function generatingRound() {
 			console.log(thisMoviePlot);
 			console.log(thisMoviePoster);
 			$('#poster').html('<img id=posterpic src =' + thisMoviePoster + '>')
-			//displaying current plot on screen
-			$('#plot').html(thisMoviePlot);
+			//displaying current plot and answers on screen after AJAX request
+			$('#plot').html(thisMoviePlot).show();
+			$('.answers').show();
 		},
 	});
 	//iterating round number
@@ -176,21 +183,26 @@ $(document).ready(function () {
 	$('.gameboard').hide();
 	$('.scores').hide();
 	$('#poster').hide();
-	generatingRound(currentRound);
+	$('#oscar').hide();
 	//showing gameboard when start button is clicked
 	$('#start-btn').click(function(){
 		$('.gameboard').show();
 		$('.scores').show();
 		$('.splash').hide();
+		generatingRound(currentRound);
 	})
 	//resetting board for next question
 	$('#nextRound').click(function(){
 		checkingWinner();
 		wrongGuesses = 0;
-		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id').show();
-		generatingRound(currentRound);
+		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
+		//skipping AJAX request if game is over
+		if (winner == false) {
+			generatingRound(currentRound);
+		}
 		$('#poster').hide();
 		$('#nextRound').hide();
+		$('#plot').hide();
 	})
 	//resetting game when reset button is clicked
 	$('#newGame').click(function(){
@@ -200,6 +212,8 @@ $(document).ready(function () {
 		$('.gameboard').hide();
 		$('.scores').hide();
 		$('.splash').show();
+		$('#oscar').hide();
+		winner = false;
 		currentRound = 1;
 		player1score = 0;
 		player2score = 0;

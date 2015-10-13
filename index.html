@@ -40,7 +40,7 @@
 
 			<div class="row splash">
 				<div class="col-md-12 text-center">
-					<button type="button" class="btn btn-lg " id ='start-btn'>Start</button>
+					<button type="button" class="btn btn-lg redButtons " id ='start-btn'>Start</button>
 				</div>	
 			</div>
 			<div class="row gameboard">
@@ -56,11 +56,17 @@
 				</div>	
 				<div class="col-xs-6">
 					<h3 class='text-center' id='plot'></h3>
+					<img class ='text-center' id='oscar' src='http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png'>
 				</div>	
 				<div class="col-xs-3">
 					<h4 class='text-center'>Player 2</h4>
 					<h4 class='text-center'>Score: <span id ='p2Score'>0</span></h4>
 					<h4 class='text-center'>Press <img src="http://www.animatedimages.org/data/media/677/animated-keyboard-image-0013.gif">!</h4>
+				</div>	
+			</div>
+			<div class="row gameboard">
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<button type="button" class="btn btn-lg redButtons" id='nextRound'>Next Question!</button>
 				</div>	
 			</div>
 			<div class="row gameboard">
@@ -87,17 +93,12 @@
 				<div class="col-md-6 col-md-offset-3 text-center" id='poster'>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3">
-					<button type="button" class="btn btn-lg btn-block" id='nextRound'>Next Question!</button>
-				</div>	
-			</div>
 			<div class="row" id='winner'>
 				<div class="col-md-6 col-md-offset-3">
 					<h1 class='text-center' id = 'winningPlayer'></h1>
 				</div>	
-				<div class="col-md-6 col-md-offset-3">
-					<button type="button" class="btn btn-lg btn-block" id='newGame'>Restart!</button>
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<button type="button" class="btn btn-lg redButtons" id='newGame'>Restart!</button>
 				</div>	
 			</div>
 		</div>
