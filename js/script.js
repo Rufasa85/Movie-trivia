@@ -74,21 +74,23 @@ function allowingClicksOnTitles () {
 				$('#nextRound').show();
 			}
 		}
-		//checking for winner, revealing winner and hiding everything else
-		if (player1score === 5 || player2score === 5){
-			if (player1score === 5){
-				$('#winningPlayer').html('Player 1 wins!')
-			}
-			else {
-				$('#winningPlayer').html('Player 2 wins!');
-			}
-			$('#nextRound').hide();
-			$('#winner').show();
-			$('.gameboard').hide();
-			$('#plot').html('<img src = http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png>')
-		} 
 	});
 }
+//checking for winner, revealing winner and hiding everything else
+function checkingWinner() {
+	if (player1score === 5 || player2score === 5){
+		if (player1score === 5){
+			$('#winningPlayer').html('Player 1 wins!')
+		}
+		else {
+			$('#winningPlayer').html('Player 2 wins!');
+		}
+		$('#nextRound').hide();
+		$('#winner').show();
+		$('.gameboard').hide();
+		$('#plot').html('<img src = http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png>')
+	} 
+};
 //turning movie selection into a function
 function generatingCurrentRoundTitles() {
 	wrongAnswers = [];
@@ -183,6 +185,7 @@ $(document).ready(function () {
 	})
 	//resetting board for next question
 	$('#nextRound').click(function(){
+		checkingWinner();
 		wrongGuesses = 0;
 		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id').show();
 		generatingRound(currentRound);
