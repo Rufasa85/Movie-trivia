@@ -17,6 +17,12 @@ img {
 	width:auto;
 }
 
+#posterpic {
+	max-width:40%;
+	width:auto;
+	height:auto;
+}
+
 body {
 	background: black;
 	color:white;

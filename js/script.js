@@ -25,8 +25,6 @@ function allowingClicksOnTitles () {
 	$('.answers').click(function(){
 		if($(this).attr('id') === 'right') {
 			$(this).addClass('btn-success');
-			//changing button styling so they appear unselectable
-			$('.answers').css('opacity','0.5');
 			//checking who is guessing, updating correct score
 			if (currentGuesser === 'Player 1'){
 				player1score ++;
@@ -38,7 +36,10 @@ function allowingClicksOnTitles () {
 				console.log(player2score);
 				$('#p2Score').html(player2score);
 			}
-			$('.answers').off('click');
+			//hiding answers and showing poster after round!
+			$('.answers').off('click').hide();
+			$('#plot').html('Correct!');
+			$('#poster').show();
 			$('#nextRound').show();
 		}
 		else {
@@ -66,9 +67,10 @@ function allowingClicksOnTitles () {
 				} 
 			}
 			else {
-				//changing button styling so they appear unselectable
-				$('.answers').css('opacity','0.5');
-				$('.answers').off('click');
+				//hiding answers and showing poster after round!
+				$('.answers').off('click').hide();
+				$('#plot').html('Correct!');
+				$('#poster').show();
 				$('#nextRound').show();
 			}
 		}
@@ -171,6 +173,7 @@ $(document).ready(function () {
 	$('#winner').hide();
 	$('.gameboard').hide();
 	$('.scores').hide();
+	$('#poster').hide();
 	generatingRound(currentRound);
 	//showing gameboard when start button is clicked
 	$('#start-btn').click(function(){
@@ -181,12 +184,14 @@ $(document).ready(function () {
 	//resetting board for next question
 	$('#nextRound').click(function(){
 		wrongGuesses = 0;
-		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
+		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id').show();
 		generatingRound(currentRound);
+		$('#poster').hide();
 		$('#nextRound').hide();
 	})
 	//resetting game when reset button is clicked
 	$('#newGame').click(function(){
+		$('#poster').hide();
 		$('#nextRound').hide();
 		$('#winner').hide();
 		$('.gameboard').hide();
@@ -199,7 +204,7 @@ $(document).ready(function () {
 		possibleMovies = allMovies.slice(0,allMovies.length);
 		$('#p2Score').html(player2score);
 		$('#p1Score').html(player1score);
-		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id');
+		$('.answers').removeClass('btn-danger').removeClass('btn-success').html('').removeAttr('id').show();
 		generatingRound(currentRound);
 	});
 });
