@@ -143,12 +143,10 @@ function allowingClicksOnTitles () {
 			//checking who is guessing, updating correct score
 			if (currentGuesser === 'Player 1'){
 				player1score ++;
-				console.log(player1score);
 				$('#p1Score').html(player1score);
 			}
 			else if (currentGuesser === 'Player 2'){
 				player2score ++;
-				console.log(player2score);
 				$('#p2Score').html(player2score);
 			}
 			//hiding answers and showing poster after round!
@@ -307,7 +305,6 @@ $(document).ready(function () {
 	$('#oscar').hide();
 	//checking for errors in poster image
 	$('#posterpic').error(function(){
-		console.log('error occured! womp womp');
 		$('#posterpic').attr('src', 'images/broken_poster.png');
 	});
 	//showing gameboard when start button is clicked
