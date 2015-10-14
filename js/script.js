@@ -149,9 +149,7 @@ function generatingRound() {
 			thisMoviePoster = data.Poster;
 			console.log(thisMoviePlot);
 			console.log(thisMoviePoster);
-			$('#poster').html('<img id=posterpic src =' + thisMoviePoster + '>').error(function(){
-				$(this).html('');
-			});
+			$('#posterpic').attr('src', thisMoviePoster );
 			//displaying current plot and answers on screen after AJAX request
 			$('#plot').html(thisMoviePlot).show();
 			$('.answers').show();
@@ -198,6 +196,11 @@ $(document).ready(function () {
 	$('.scores').hide();
 	$('#poster').hide();
 	$('#oscar').hide();
+	//checking for errors in poster image
+	$('#posterpic').error(function(){
+		console.log('error occured! womp womp');
+		$('#posterpic').attr('src', 'https://pixabay.com/static/uploads/photo/2013/07/13/14/03/film-162029_640.png');
+	});
 	//showing gameboard when start button is clicked
 	$('#start-btn').click(function(){
 		$('.gameboard').show();
