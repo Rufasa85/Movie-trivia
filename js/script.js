@@ -256,7 +256,7 @@ function generatingRound() {
 			thisMoviePlot = data.Plot;
 			//loading in poster to display after question is answered
 			thisMoviePoster = data.Poster;
-			$('#posterpic').attr('src', thisMoviePoster );
+			$('#posterpic').attr('src', thisMoviePoster);
 			//displaying current plot and answers on screen after AJAX request
 			$('#plot').html(thisMoviePlot).show();
 			$('.answers').show();
