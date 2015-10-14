@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="shortcut icon" type="image/png" href="images/film-reel.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel = "shortcut icon" type= "image/png" href = "images/film-reel.ico">
+		<meta name = "viewport" content= "width = device-width, initial-scale = 1, maximum-scale = 1, user-scalable = no">
 		<title>Movie trivia!</title>
-		<link rel="stylesheet" media="screen" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel = "stylesheet" media = "screen" href = "http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link href = 'https://fonts.googleapis.com/css?family=Nunito' rel = 'stylesheet' type = 'text/css'>
+		<link rel = "stylesheet" type = "text/css" href = "css/sweetalert.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/styles.css">
 	</head>
 	<body>
-		<div class="container">
-			<div class="jumbotron splash" >
-				<div class="container">
-					<h1 class='text-center'>MOVIE TRIVIA!</h1>
-					<div class="row splash">
-						<div class="col-md-12">	
-							<p  class = 'text-center' data-toggle="modal" href='#modal-id'><u>How to play</u></p>
-							<div class="modal fade" id="modal-id">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h4 class="modal-title text-center"><strong>HOW TO PLAY!</strong></h4>
+		<div class = "container">
+			<div class = "jumbotron splash" >
+				<div class = "container">
+					<h1 class = 'text-center'>MOVIE TRIVIA!</h1>
+					<div class = "row splash">
+						<div class = "col-md-12">	
+							<p  class = 'text-center' data-toggle = "modal" href = '#modal-id'><u>How to play</u></p>
+							<div class = "modal fade" id = "modal-id">
+								<div class = "modal-dialog">
+									<div class = "modal-content">
+										<div class = "modal-header">
+											<button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">&times;</button>
+											<h4 class = "modal-title text-center"><strong>HOW TO PLAY!</strong></h4>
 										</div>
-										<div class="modal-body">
-											<div class="row">
-												<div class="col-md-6 col-md-offset-3">
+										<div class = "modal-body">
+											<div class = "row">
+												<div class = "col-md-6 col-md-offset-3">
 													<h4 class = 'text-center'><strong>WELCOME!!!</strong></h4>  
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-8 col-md-offset-2">
+											<div class = "row">
+												<div class = "col-md-8 col-md-offset-2">
 													<p class = 'text-center'><small>Consider yourself a movie buff? Arguing with your best friend over who knows more about films? This is the game you have been waiting for!</small></p>  
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 col-md-offset-3">
+											<div class = "row">
+												<div class = "col-md-6 col-md-offset-3">
 													<h4 class = 'text-center'><strong>GAMEPLAY</h4>  
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-8 col-md-offset-2">
+											<div class = "row">
+												<div class = "col-md-8 col-md-offset-2">
 													<p class = 'text-center'><small>Each round, you will be presented with the plot of a random movie. Buzz in using the key displayed beneath your player (Q for player 1, M for player 2).  After buzzing, click on the correct film. If you are right, you will get a point! If not, the other player will have a chance!  If both players answer incorrectly, no one gets points! First to 5 points wins!</small></p>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 col-md-offset-3">
+											<div class = "row">
+												<div class = "col-md-6 col-md-offset-3">
 													<h4 class = 'text-center'>GOOD LUCK!!</h4>  
 												</div>
 											</div>
@@ -62,75 +62,75 @@
 
 
 
-			<div class="row splash">
-				<div class="col-md-12 text-center">
-					<button type="button" class="btn btn-lg redButtons " id ='start-btn'>Start</button>
+			<div class = "row splash">
+				<div class = "col-md-12 text-center">
+					<button type = "button" class = "btn btn-lg redButtons " id = 'start-btn'>Start</button>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-xs-6 col-xs-offset-3">
-					<h1 class='text-center'>Round <span id = 'round'>1</span></h1>
+			<div class = "row gameboard">
+				<div class = "col-xs-6 col-xs-offset-3">
+					<h1 class = 'text-center'>Round <span id = 'round'>1</span></h1>
 				</div>	
 			</div>
-			<div class="row scores">
-				<div class="col-xs-3">
-					<h4 class='text-center'>Player 1</h4>
-					<h4 class='text-center'>Score: <span id ='p1Score'>0</span></h4>
-					<h4 class='text-center'>Press <img src="http://www.animatedimages.org/data/media/677/animated-keyboard-image-0017.gif">!</h4>
+			<div class = "row scores">
+				<div class = "col-xs-3">
+					<h4 class = 'text-center'>Player 1</h4>
+					<h4 class = 'text-center'>Score: <span id = 'p1Score'>0</span></h4>
+					<h4 class = 'text-center'>Press <img src = "http://www.animatedimages.org/data/media/677/animated-keyboard-image-0017.gif">!</h4>
 				</div>	
-				<div class="col-xs-6 text-center">
-					<h3 class='text-center' id='plot'></h3>
-					<img class ='text-center' id='oscar' src='http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png'>
+				<div class = "col-xs-6 text-center">
+					<h3 class = 'text-center' id = 'plot'></h3>
+					<img class = 'text-center' id = 'oscar' src= 'http://www.cliparthut.com/clip-arts/567/oscar-awards-clip-art-567814.png'>
 				</div>	
-				<div class="col-xs-3">
-					<h4 class='text-center'>Player 2</h4>
-					<h4 class='text-center'>Score: <span id ='p2Score'>0</span></h4>
-					<h4 class='text-center'>Press <img src="http://www.animatedimages.org/data/media/677/animated-keyboard-image-0013.gif">!</h4>
-				</div>	
-			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<button type="button" class="btn btn-lg redButtons" id='nextRound'>Next Question!</button>
+				<div class = "col-xs-3">
+					<h4 class = 'text-center'>Player 2</h4>
+					<h4 class = 'text-center'>Score: <span id = 'p2Score'>0</span></h4>
+					<h4 class = 'text-center'>Press <img src = "http://www.animatedimages.org/data/media/677/animated-keyboard-image-0013.gif">!</h4>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3">
-					<button type="button" class="btn btn-lg btn-block answers active"></button>
+			<div class = "row gameboard">
+				<div class = "col-md-6 col-md-offset-3 text-center">
+					<button type = "button" class = "btn btn-lg redButtons" id = 'nextRound'>Next Question!</button>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3">
-					<button type="button" class="btn btn-lg btn-block answers active"></button>
+			<div class = "row gameboard">
+				<div class = "col-md-6 col-md-offset-3">
+					<button type = "button" class = "btn btn-lg btn-block answers active"></button>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3">
-					<button type="button" class="btn btn-lg btn-block answers active"></button>
+			<div class = "row gameboard">
+				<div class = "col-md-6 col-md-offset-3">
+					<button type = "button" class = "btn btn-lg btn-block answers active"></button>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3">
-					<button type="button" class="btn btn-lg btn-block answers active"></button>
+			<div class = "row gameboard">
+				<div class = "col-md-6 col-md-offset-3">
+					<button type = "button" class = "btn btn-lg btn-block answers active"></button>
 				</div>	
 			</div>
-			<div class="row gameboard">
-				<div class="col-md-6 col-md-offset-3 text-center" id='poster'>
-					<img id='posterpic'>
+			<div class = "row gameboard">
+				<div class = "col-md-6 col-md-offset-3">
+					<button type = "button" class = "btn btn-lg btn-block answers active"></button>
 				</div>	
 			</div>
-			<div class="row" id='winner'>
-				<div class="col-md-6 col-md-offset-3">
-					<h1 class='text-center' id = 'winningPlayer'></h1>
+			<div class = "row gameboard">
+				<div class = "col-md-6 col-md-offset-3 text-center" id = 'poster'>
+					<img id = 'posterpic'>
 				</div>	
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<button type="button" class="btn btn-lg redButtons" id='newGame'>Restart!</button>
+			</div>
+			<div class = "row" id = 'winner'>
+				<div class = "col-md-6 col-md-offset-3">
+					<h1 class = 'text-center' id = 'winningPlayer'></h1>
+				</div>	
+				<div class = "col-md-6 col-md-offset-3 text-center">
+					<button type = "button" class = "btn btn-lg redButtons" id = 'newGame'>Restart!</button>
 				</div>	
 			</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src='https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'></script>
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script src="js/sweetalert.min.js"></script> 
-		<script type="text/javascript" src='js/script.js'></script>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src = 'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'></script>
+		<script src = "http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src = "js/sweetalert.min.js"></script> 
+		<script type = "text/javascript" src = 'js/script.js'></script>
 	</body>
 </html>

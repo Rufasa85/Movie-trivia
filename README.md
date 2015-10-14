@@ -13,7 +13,7 @@ A simultaneous two-player movie trivia game wherein the users are promted with t
 * Plots and posters generated using the [OMDB API](http://www.omdbapi.com/)
 
 ###Known Issues
-* If too many requests are made in too short a time, the API forbids accessing the poster images.  I have installed a placeholder image, but I would prefer to have the posters pop in
+* If too many requests are made in too short a time, the API forbids accessing the poster images.  I have installed a placeholder image, but I would prefer to have the posters pop in.
 
 ###Wishlist
 * Difficulty selector, wherein each difficulty level presents a different piece of info about the film. Hard mode would give you director and year, for example
