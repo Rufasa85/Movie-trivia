@@ -8,29 +8,18 @@ body {
 	color:white;
 	font-family: 'Nunito', sans-serif;
 }
-.btn-block {
-	border:1px solid black;
-}
 
 button {
 	background:#2980b9;
 }
 
 img {
-	max-width:12%;
+	max-width:25px;
 	height:auto;
 }
 
-#oscar {
-	height: 350px;
-	max-width:100%;
-	width:auto;
-}
-
-#posterpic {
-	max-width:40%;
-	width:auto;
-	height:auto;
+.btn-block {
+	border:1px solid black;
 }
 
 .modal-content {
@@ -52,4 +41,16 @@ img {
 
 .jumbotron h1 {
 	font-family: Limelight;
+}
+
+#oscar {
+	height: 350px;
+	max-width:100%;
+	width:auto;
+}
+
+#posterpic {
+	max-width:40%;
+	width:auto;
+	height:auto;
 }
