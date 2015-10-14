@@ -1,4 +1,4 @@
-# Movie-trivia!!
+# Movie Trivia!!
 ### Basic Info
 A simultaneous two-player movie trivia game wherein the users are promted with the plot of a film and, after buzzing in using keypresses, guess from a randomly populated list of titles.  If the correct answer is selected, the poster for that movie is displayed, and the next round is available.  
 
