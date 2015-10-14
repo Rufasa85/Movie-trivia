@@ -145,7 +145,7 @@ function generatingRound() {
 		method:'GET',
 		success:function(data) {
 			thisMoviePlot = data.Plot;
-			//loading in poster to display after question is answered, leaving empty if error occurs
+			//loading in poster to display after question is answered
 			thisMoviePoster = data.Poster;
 			console.log(thisMoviePlot);
 			console.log(thisMoviePoster);
@@ -187,7 +187,6 @@ function buzzingIn() {
 		allowingClicksOnTitles();
 	});
 }
-
 $(document).ready(function () {
 	//initializing view
 	$('#nextRound').hide();
@@ -199,7 +198,7 @@ $(document).ready(function () {
 	//checking for errors in poster image
 	$('#posterpic').error(function(){
 		console.log('error occured! womp womp');
-		$('#posterpic').attr('src', 'https://pixabay.com/static/uploads/photo/2013/07/13/14/03/film-162029_640.png');
+		$('#posterpic').attr('src', 'images/broken_poster.png');
 	});
 	//showing gameboard when start button is clicked
 	$('#start-btn').click(function(){
